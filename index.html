@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div id="container">
+        <section id="time">
+          <span id="hour">00</span>:<span id="min">00</span>:<span id="sec"
+            >00</span
+          >
+        </section>
+
+        <section id="btn-input">
+          <div id="inputs">
+            <input id="input-hour" placeholder="hours" type="number" />
+            <input id="input-min" placeholder="minuts" type="number" />
+            <input id="input-sec" placeholder="seconds" type="number" />
+          </div>
+
+          <div id="btns">
+            <button id="btn-reset" style="display: none">Reset</button>
+
+            <button id="btn-start">Start</button>
+            <button id="btn-pause" style="display: none">Pause</button>
+          </div>
+          <h1
+            id="msg"
+            style="
+              display: none;
+              text-align: center;
+              color: darkred;
+              font-size: xx-large;
+            "
+          >
+            Negative value of time is not accepted.
+          </h1>
+        </section>
+      </div>
+    </main>
+
+    <script src="interval.js"></script>
+  </body>
+</html>
