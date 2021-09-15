@@ -29,11 +29,28 @@ main {
   );
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.below {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 60px;
+  left: 30px;
+}
+
 #time {
   color: wheat;
   font-size: 100px;
   width: 50%;
-  margin: 100px auto;
+  margin: 80px auto;
   background-color: rgba(20, 39, 7, 0.733);
 }
 

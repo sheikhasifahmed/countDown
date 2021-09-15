@@ -1,3 +1,9 @@
+const selector = document.getElementById("selector");
+const btnCountDown = document.getElementById("btn-countDown");
+const btnStopWatch = document.getElementById("btn-stopWatch");
+const welcome = document.getElementById("welcome");
+let select = 0;
+
 let msg = document.getElementById("msg");
 let inputHour = document.getElementById("input-hour");
 let inputMin = document.getElementById("input-min");
@@ -40,9 +46,38 @@ let cdownfunc = function () {
   }, 1000);
 };
 
+let swatchfunc = function () {
+  let hr = inputHour.value || 0;
+  let mn = inputMin.value || 0;
+  let sc = inputSec.value || 0;
+
+  totalTime = parseFloat(hr) * 3600 + parseFloat(mn) * 60 + parseFloat(sc);
+
+  let fTime = totalTime;
+  time = temp || 0;
+
+  inputSec.value = "";
+  inputMin.value = "";
+  inputHour.value = "";
+  cdown = setInterval(function () {
+    calcTime(time);
+    time++;
+    if (fTime == 0) return;
+    if (time > fTime) {
+      clearInterval(cdown);
+      btnStart.style.display = "block";
+      btnStop.style.display = "none";
+      btnReset.style.display = "none";
+      temp = 0;
+    }
+  }, 1000);
+};
+
 btnStart.addEventListener("click", function () {
-  cdownfunc();
+  if (select === 0) cdownfunc();
+  if (select == 1) swatchfunc();
   btnStart.style.display = "none";
+
   btnStop.style.display = "block";
   btnReset.style.display = "block";
 });
@@ -72,7 +107,7 @@ function calcTime(seconds) {
   msg.style.display = "none";
 }
 
-btnReset.addEventListener("click", function () {
+function reset() {
   time = 0;
   calcTime(time);
   inputSec.value = "";
@@ -81,4 +116,33 @@ btnReset.addEventListener("click", function () {
   btnStart.style.display = "block";
   btnStop.style.display = "none";
   btnReset.style.display = "none";
+}
+
+btnReset.addEventListener("click", reset);
+
+btnStopWatch.addEventListener("click", function () {
+  btnStopWatch.style.display = "none";
+  btnCountDown.style.display = "block";
+  welcome.innerText = "Stopwatch";
+  welcome.style.backgroundColor = "cornflowerblue";
+  select = 1;
+  reset();
+  working();
 });
+
+btnCountDown.addEventListener("click", function () {
+  btnStopWatch.style.display = "block";
+  btnCountDown.style.display = "none";
+  welcome.innerText = "Countdown";
+  welcome.style.backgroundColor = "crimson";
+  select = 0;
+  reset();
+  working();
+});
+
+function working() {
+  const mainPart = document.getElementById("main");
+  mainPart.style.display = "block";
+  selector.classList.remove("center");
+  selector.classList.add("below");
+}
