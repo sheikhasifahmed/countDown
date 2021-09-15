@@ -123,7 +123,7 @@ btnReset.addEventListener("click", reset);
 btnStopWatch.addEventListener("click", function () {
   btnStopWatch.style.display = "none";
   btnCountDown.style.display = "block";
-  welcome.innerText = "Stopwatch";
+  welcome.innerText = "Input a stop time or just start the STOPWATCH";
   welcome.style.backgroundColor = "cornflowerblue";
   select = 1;
   reset();
@@ -133,7 +133,7 @@ btnStopWatch.addEventListener("click", function () {
 btnCountDown.addEventListener("click", function () {
   btnStopWatch.style.display = "block";
   btnCountDown.style.display = "none";
-  welcome.innerText = "Countdown";
+  welcome.innerText = "Always input a initial time to start COUNTDOWN";
   welcome.style.backgroundColor = "crimson";
   select = 0;
   reset();
